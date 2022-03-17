@@ -18,6 +18,8 @@ const useStyles = makeStyles({
     },
     icons: {
       margin: '5px',
+      cursor: 'pointer',
+      color: '#3f51b5',
     },
     thead: {
       fontSize: '20px',
@@ -27,9 +29,18 @@ const useStyles = makeStyles({
   });
 
 function ShowUserTableData(props) {
-    const {books} = props;
+    const {books, onDelete, onEdit} = props;
     const classes = useStyles();
 
+    const deleteHandler = (id) => {
+      console.log(' in delete handler in table component', id);
+      onDelete(id);
+    }
+
+    const editHandler = (id) => {
+      console.log('in edit handler in table component', id);
+      onEdit(id);
+    }
   return (
       <TableBody>
 
@@ -40,8 +51,8 @@ function ShowUserTableData(props) {
             </TableCell>
             <TableCell>{book.bookAuthor}</TableCell>
             <TableCell align="center">
-              <Edit className={classes.icons}/>
-              <Delete className={classes.icons}/>
+              <Edit className={classes.icons} onClick={() => editHandler(book.id)}/>
+              <Delete className={classes.icons} onClick={() => deleteHandler(book.id)}/>
             </TableCell>
             {/* Add a new component below to include edit and delete buttons */}
             {/* <TableCell align="right">{row.carbs}</TableCell> 

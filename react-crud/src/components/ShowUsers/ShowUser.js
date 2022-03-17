@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Grid } from "@material-ui/core";
 import ShowUserTable from "./ShowUserTable";
-import { getBooksList } from "../../services/list";
-
 export default function ShowUserComponent(props) {
- const {books, isLoading} = props
+ const {books, isLoading, onDelete, onEdit} = props
   return (
     <Grid
       container
@@ -14,7 +12,7 @@ export default function ShowUserComponent(props) {
       alignItems="center"
       justifyContent="center"
     >
-      <ShowUserTable books={books} isLoading={isLoading} />
+      <ShowUserTable books={books} isLoading={isLoading} onDelete={onDelete} onEdit={onEdit}/>
     </Grid>
   );
 }
