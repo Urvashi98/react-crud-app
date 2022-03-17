@@ -21,17 +21,9 @@ export default function AddUserForm(props) {
   const classes = useStyles();
 
   const onChange = (e) => {
-    // const {id, value} = e.target;
-    // setData((preState) => ({...preState, [id]:value}))
     onChangeHandler(e);
   }
   const onSubmit = (e) => {
-    // e.preventDefault();
-    // var id = "id_" + Math.random().toString().slice(10);
-    // data.id = id;
-    // console.log('DATAA', data);
-    // setBookToList(data);
-    // setData(initialData);
     submitHandler(e);
   }
   return (
